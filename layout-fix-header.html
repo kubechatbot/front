@@ -26,6 +26,8 @@
       <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <link href="css/rule-css.css" rel="stylesheet" />
   </head>
 
   <body class="fix-header fix-sidebar">
@@ -205,18 +207,25 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th></th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row"></th>
+                        <tr class="rule-chart-div">
+                          <td scope="row"></td>
+                          <td class="rule-chart">
+                            <div class="rule-d-chart">
+                              <canvas id="doughutChart"></canvas>
+                            </div>
+                          </td>
+                          <td>
+                            <h1>10</h1>
+                            <p><i>현재 Rule</i></p>
+                          </td>
+                          <td>
+                            <h1>49</h1>
+                            <p><i>사용가능 Rule</i></p>
+                          </td>
                           <td></td>
-                          <td>현재 Rule</td>
-                          <td>사용가능 Rule</td>
                         </tr>
                       </tbody>
                       <thead>
@@ -228,7 +237,7 @@
                           <th>
                             <button
                               type="button"
-                              class="btn btn-primary btn-flat btn-addon m-b-10 m-l-5"
+                              class="btn btn-primary btn-flat btn-addon m-l-5"
                               data-bs-toggle="modal"
                               data-target="#staticBackdrop-1-1"
                             >
@@ -242,8 +251,12 @@
                           <th scope="row">1</th>
                           <td>kt ds</td>
                           <td></td>
-                          <td><i class="fa-solid fa-circle-info"></i></td>
-                          <td><i class="fa-solid fa-circle-info"></i></td>
+                          <td class="rule-mod">
+                            <button><i class="fa-solid fa-circle-info">정보</i></button>
+                            <button><i class="fa-solid fa-circle-info">삭제</i></button>
+                            <button><i class="fa-solid fa-circle-info">편집</i></button>
+                          </td>
+                          <td></td>
                         </tr>
                         <tr>
                           <th scope="row">2</th>
@@ -283,6 +296,11 @@
     <script src="js/sidebarmenu.js"></script>
     <!--stickey kit -->
     <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+    <script src="js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="js/new-chart.js">
+
+    </script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
   </body>

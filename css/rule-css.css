@@ -1,0 +1,38 @@
+.table > tbody > tr > td, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > td, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > thead > tr > th{
+    vertical-align: middle;
+}
+
+.rule-chart{
+    display:flex;
+    justify-content: space-around;
+    border-top:0.1px solid #dee2e6 !important;
+}
+
+.rule-d-chart{
+    width:400px;
+    height:200px;
+}
+
+.rule-chart-div > th,
+.rule-chart-div > td{
+    text-align:center;
+}
+
+.rule-mod{
+    border-top:none !important;
+    display:flex;
+    justify-content: space-between;
+}
+
+.rule-mod > button{
+    border:none;
+    background-color: inherit;
+}
+.rule-mod> button:hover{
+    background-color:inherit;
+}
