@@ -13,7 +13,7 @@
     Author: Zebra Theme
     Developer by: Zebra Theme
 
-    Table of Content
+    Table of Content (TOC)
     ================
 
 1. variable
@@ -678,6 +678,7 @@ button:hover {
   outline: none !important;
   text-decoration: none !important;
 }
+
 ul {
   padding: 0;
   margin: 0;
@@ -7149,4 +7150,13 @@ tbody tr td:last-child {
   .retina-logo {
     display: inline-block !important;
   }
+}
+
+/* WJ add CSS */
+
+.session_btn {
+  float: right;
+  margin-top: 100px;
+  margin-right: 70px;
+  margin-bottom: 10px;
 }
