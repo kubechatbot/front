@@ -7151,12 +7151,3 @@ tbody tr td:last-child {
     display: inline-block !important;
   }
 }
-
-/* WJ add CSS */
-
-.session_btn {
-  float: right;
-  margin-top: 100px;
-  margin-right: 70px;
-  margin-bottom: 10px;
-}

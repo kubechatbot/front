@@ -1,4 +1,29 @@
 .modal-dialog {
-  top: 50%;
+  top: 45%;
   max-width: 600px;
+  height: 700px;
+}
+
+#chkbox {
+  margin-left: 20px;
+}
+
+.three-style {
+  text-align: center;
+}
+
+.session_btn {
+  float: right;
+  margin-top: 20px;
+  margin-right: 70px;
+  margin-bottom: 10px;
+}
+
+.table1 {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.long-wd {
+  width: 850px;
 }
