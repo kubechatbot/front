@@ -2,7 +2,7 @@
   "use strict";
   //doughut chart
   var ctx = document.getElementById("doughutChart");
-  ctx.height = 150;
+  ctx.height = 280;
   var myChart = new Chart(ctx, {
     type: "doughnut",
     data: {
