@@ -242,15 +242,15 @@
                           </th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody id="myTable">
                         <tr>
                           <th scope="row">1</th>
                           <td>kt ds</td>
                           <td></td>
                           <td class="rule-mod">
-                            <button><i class="fa-solid fa-circle-info">정보</i></button>
-                            <button><i class="fa-solid fa-circle-info">삭제</i></button>
-                            <button><i class="fa-solid fa-circle-info">편집</i></button>
+                            <button><i>정보</i></button>
+                            <button onclick="myDeleteFunction()"><i>삭제</i></button>
+                            <button><i>편집</i></button>
                           </td>
                           <td></td>
                         </tr>
@@ -258,7 +258,11 @@
                           <th scope="row">2</th>
                           <td>kt Cloud</td>
                           <td></td>
-                          <td></td>
+                          <td class="rule-mod">
+                            <button><i>정보</i></button>
+                            <button onclick="myDeleteFunction()"><i>삭제</i></button>
+                            <button><i>편집</i></button>
+                          </td>
                           <td></td>
                         </tr>
                       </tbody>
@@ -292,12 +296,16 @@
           <ul class="rule-modal-btn">
             <li><h3>룰생성</h3></li>
             <li><button type="button"
+              onclick="myCreateFunction()"
               class="btn btn-primary btn-flat btn-addon"
               id="myBtn">생성하기</button></li>
           </ul>
           
       </div>
     </div>
+
+    <!--rule delete and create-->
+    <script src="js/rule_cd.js"></script>
 
     <!-- All Jquery -->
     <script src="js/lib/jquery/jquery.min.js"></script>
