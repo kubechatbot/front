@@ -20,6 +20,7 @@
     <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
     <link href="css/helper.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <link href="css/session.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -27,7 +28,7 @@
       <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="css/rule-css.css" rel="stylesheet" />
-    <link href="css/rule-modal.css" rel="stylesheet" />
+    <link href="css/rule-modal.css" rel="stylesheet"/>
 
   </head>
 
@@ -237,19 +238,22 @@
                           <th></th>
                           <th>
                             <button type="button"
-                            class="btn btn-primary btn-flat btn-addon"
-                            id="myBtn">Rule생성</button>
+                            class="btn btn-primary btn-flat btn-addon rule-btn"
+                            id="myBtn"
+                            data-toggle="modal"
+                            data-target="#exampleModalCenter"
+                            >Rule생성</button>
                           </th>
                         </tr>
                       </thead>
                       <tbody id="myTable">
-                        <tr>
+                        <!-- <tr>
                           <th scope="row">1</th>
                           <td>kt ds</td>
                           <td></td>
                           <td class="rule-mod">
                             <button><i>정보</i></button>
-                            <button onclick="myDeleteFunction()"><i>삭제</i></button>
+                            <button id="delBtn" onclick="myDeleteFunction()"><i>삭제</i></button>
                             <button><i>편집</i></button>
                           </td>
                           <td></td>
@@ -264,7 +268,7 @@
                             <button><i>편집</i></button>
                           </td>
                           <td></td>
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>
                   </div>
@@ -287,20 +291,118 @@
     <!-- End Wrapper -->
 
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal rule-modal">
+<!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div
+        class="modal"
+        id="exampleModalCenter"
+        tabindex="-1"
+        role="dialog"
+        data-backdrop="static"
+        data-keyboard="false"
+      >
+        <div class="modal-dialog  rule-modal" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Rule생성</h3>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+        <!-- <p>Modal body text goes here.</p> -->
 
-      <!-- Modal content -->
-      <div class="modal-content rule-modal-content">
-          <span><button  class="close rule-modal-close">&times;</button></span>
-          <ul class="rule-modal-btn">
-            <li><h3>룰생성</h3></li>
-            <li><button type="button"
-              onclick="myCreateFunction()"
-              class="btn btn-primary btn-flat btn-addon"
-              id="myBtn">생성하기</button></li>
-          </ul>
-          
+        <!-- test Start -->
+        <!-- Start Page Content -->
+            <div class="row justify-content-center">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body modalBody">
+                    <div class="col-lg-8 d-flex justify-content-center m-auto rule-modal-name" >
+                      <input
+                        type="text"
+                        placeholder="Rule name"
+                        name="Search"
+                        id="newRule"
+                        class="form-control"
+                      />
+                      <button type="button"
+                      onclick="myCreateFunction()"
+                      class="btn btn-primary btn-flat btn-addon rule-btn"
+                      id="myBtn">생성하기</button>
+                    </div>
+                    <hr>
+                    <!-- Tab panes -->
+                    <div class="tab-content rule-modal">
+                      <table class="rule-modal-table">
+                        <tbody id="ruleTable">
+                          <tr class="rule-modal-input">
+                            <th>
+                              <p class="text-muted m-b-15 f-s-12">검색어</p>
+                            </th>
+                            <th>
+                              <p class="text-muted m-b-15 f-s-12">출력</p>
+                            </th>
+                            <th></th>
+                          </tr>
+                          <tr class="rule-modal-input">
+                            <td>
+                              <form  class='rule-modal-input'>
+                                <div class="form-group">
+                                  <div class="input-group input-group-rounded">
+                                    <input
+                                      type="text"
+                                      placeholder="ex)근무시간"
+                                      name="search"
+                                      class="form-control"
+                                    />
+                                  </div>
+                                </div>
+                              </form>
+                            </td>
+                            <td>
+                              <form>
+                                <div class="form-group">
+                                  <div class="input-group input-group-rounded">
+                                    <input
+                                      type="text"
+                                      placeholder="ex)월:9~17, 화:9~18"
+                                      name="print"
+                                      class="form-control"
+                                    />
+                                  </div>
+                                </div>
+                              </form>
+                            </td>
+                            <td>
+                              <button
+                              type="button"
+                              class="btn btn-primary make-btn rule-btn"
+                              href="#"
+                              id="plusRule"
+                              onclick="plusRule()"
+                              >
+                                +
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                        
+                      </table>
+                    <!-- end -->
+                    </div>
+              <!-- card-body modalBody end -->
+              
+                </div>
+              </div>
+            </div>
+        <!-- End Page Content -->
+        <!-- test End -->
       </div>
     </div>
 
