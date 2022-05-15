@@ -38,7 +38,7 @@ function plusRule(){
     var r_cell2 = r_row.insertCell(1);
     var r_cell3 = r_row.insertCell(2);
     
-    r_cell1.innerHTML = "<form class='rule-modal-input'><div class='form-group'><div class='input-group input-group-rounded'><input type='text' placeholder='ex)근무시간' name='search' class='form-control'/></div></div></form>";
-    r_cell2.innerHTML = "<form class='rule-modal-input'><div class='form-group'><div class='input-group input-group-rounded'><input type='text' placeholder='ex)월:9~17, 화:9~18' name='print' class='form-control'/></div></div></form>";
+    r_cell1.innerHTML = "<form class='rule-modal-input'><div class='form-group'><div class='input-group input-group-rounded'><input type='text' name='search' class='form-control'/></div></div></form>";
+    r_cell2.innerHTML = "<form class='rule-modal-input'><div class='form-group'><div class='input-group input-group-rounded'><input type='text' name='print' class='form-control'/></div></div></form>";
     r_cell3.innerHTML = "<button type='button' class='btn btn-primary make-btn' href='#' id='plusRule' onclick='plusRule()'>+</button>";
 }
