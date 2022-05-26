@@ -21,6 +21,13 @@
       <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.js"
+      integrity="sha512-Qv1OSKmVsG3Y4WAKqvlcL/KllfceErp2+ZfNsQtox5nZtQKL86CVfbjmak7A+ka3jo7BwvFXa47vHEBs8QKq7Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
 
   <body class="fix-header fix-sidebar">
@@ -47,11 +54,14 @@
               <div class="login-content card">
                 <div class="login-form">
                   <h4>Login</h4>
-                  <form>
+                  <!-- <form> -->
+                  <form action="/ajax" method="post">
                     <div class="form-group">
                       <label>Email address</label>
                       <input
+                        id="email"
                         type="email"
+                        name="email"
                         class="form-control"
                         placeholder="Email"
                       />
@@ -59,7 +69,9 @@
                     <div class="form-group">
                       <label>Password</label>
                       <input
+                        id="password"
                         type="password"
+                        name="password"
                         class="form-control"
                         placeholder="Password"
                       />
@@ -72,8 +84,9 @@
                     </div>
 
                     <button
+                      id="signIn"
                       type="submit"
-                      class="btn btn-primary btn-flat m-b-30 m-t-30"
+                      class="btn btn-primary btn-flat m-b-30 m-t-30 signIn"
                     >
                       Sign in
                     </button>
@@ -84,6 +97,7 @@
                       </p>
                     </div>
                   </form>
+                  <div calss="result"></div>
                 </div>
               </div>
             </div>
@@ -105,5 +119,6 @@
     <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script src="js/login-test.js" defer></script>
   </body>
 </html>
