@@ -4,6 +4,7 @@ var r_cnt = document.getElementById("count-rule");
 var cnt_r_m=50;
 var cnt_r=1;
 var making_rule={};
+var making_rule_two={};
 
 function plusRule(){
     var r_table = document.getElementById("ruleTable");
@@ -28,7 +29,6 @@ function myCreateFunction() {
     var table = document.getElementById("myTable");
     var new_rule = document.getElementById('newRule').value;
     var row = table.insertRow(-1);
-    var making_rule_two={};
 
     if(Object.keys(making_rule).includes(new_rule)==true){
         alert('이미 존재하는 rule name입니다.');
@@ -43,7 +43,7 @@ function myCreateFunction() {
     cell1.innerHTML = "";
     cell2.innerHTML = new_rule;
     cell3.innerHTML = "";
-    cell4.innerHTML = "<button style='border:none; background-color: inherit;' class='checkBtn' onclick='showInfo(this)'><i>정보</i></button><button style='border:none;background-color: inherit;' id='delete' onclick='myDeleteFunction(this);'><i>삭제</i></button><button  class='button' href='#popup_flight_travlDil3' style='border:none;background-color: inherit;' onclick='modInfo()'><i>편집</i></button>";
+    cell4.innerHTML = "<button style='border:none; background-color: inherit;' class='checkBtn' onclick='showInfo(this)'><i>정보</i></button><button style='border:none;background-color: inherit;' id='delete' onclick='myDeleteFunction(this);'><i>삭제</i></button><button  class='button' href='#popup_flight_travlDil3' style='border:none;background-color: inherit;' onclick='modInfo(this)'><i>편집</i></button>";
     cell5.innerHTML = "";
 
     const trGroup = Array.from(document.querySelectorAll('#rule-input tr'));
@@ -61,6 +61,7 @@ function myCreateFunction() {
     }
     making_rule[new_rule]=making_rule_two;
     
+    making_rule_two={};
     cnt_r_m-=1;
     cnt_r+=1;
     r_cnt_m.innerHTML=cnt_r_m;
@@ -104,8 +105,24 @@ function showInfo(r){
 }
 
 
-// function modInfo(){
-//     new input first와 new input second를 만들고
-//     new input first value가 이미 making_rule에 key로 존재하다면,
-//     new input second value를 value로 넣어줌
-// }
+function modInfo(r){
+    var rIdx = r.parentNode.parentNode.rowIndex-3;
+    var trow=document.getElementById("myTable").getElementsByTagName("tr")[rIdx].childNodes[1].innerText;
+
+    var testest=document.getElementById("test").value;
+    var testest2=document.getElementById("test2").value;
+
+    var onlymod=making_rule[trow];
+
+    if(Object.keys(onlymod).includes(testest)==true){
+        var modresult=confirm('이미 존재하는 값입니다. 변경하시겠습니까? (저장된 내용)= 검색어:'+testest+'   출력:'+onlymod[testest]+')');
+        if(modresult){
+            delete onlymod[testest];
+           onlymod[testest]=testest2;
+        }
+        else{
+            return false;
+        }
+    }
+    onlymod[testest]=testest2;
+}
