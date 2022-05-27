@@ -220,11 +220,11 @@
                             </div>
                           </td>
                           <td>
-                            <h1>10</h1>
+                            <h1 id="count-rule">0</h1>
                             <p><i>현재 Rule</i></p>
                           </td>
                           <td>
-                            <h1>49</h1>
+                            <h1 id="count-rule-minus">50</h1>
                             <p><i>사용가능 Rule</i></p>
                           </td>
                           <td></td>
@@ -247,34 +247,12 @@
                         </tr>
                       </thead>
                       <tbody id="myTable">
-                        <!-- <tr>
-                          <th scope="row">1</th>
-                          <td>kt ds</td>
-                          <td></td>
-                          <td class="rule-mod">
-                            <button><i>정보</i></button>
-                            <button id="delBtn" onclick="myDeleteFunction()"><i>삭제</i></button>
-                            <button><i>편집</i></button>
-                          </td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>kt Cloud</td>
-                          <td></td>
-                          <td class="rule-mod">
-                            <button><i>정보</i></button>
-                            <button onclick="myDeleteFunction()"><i>삭제</i></button>
-                            <button><i>편집</i></button>
-                          </td>
-                          <td></td>
-                        </tr> -->
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
-            </div>
+            </div>    
           </div>
           <!-- End PAge Content -->
         </div>
@@ -289,7 +267,6 @@
       <!-- End Page wrapper  -->
     </div>
     <!-- End Wrapper -->
-
 
 <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -339,7 +316,7 @@
                     <hr>
                     <!-- Tab panes -->
                     <div class="tab-content rule-modal">
-                      <table class="rule-modal-table">
+                      <table id="rule-input" class="rule-modal-table">
                         <tbody id="ruleTable">
                           <tr class="rule-modal-input">
                             <th>
@@ -360,6 +337,7 @@
                                       placeholder="ex)근무시간"
                                       name="search"
                                       class="form-control"
+                                      id="rule-modal-input-first"
                                     />
                                   </div>
                                 </div>
@@ -374,6 +352,7 @@
                                       placeholder="ex)월:9~17, 화:9~18"
                                       name="print"
                                       class="form-control"
+                                      id="rule-modal-input-second"
                                     />
                                   </div>
                                 </div>
@@ -397,7 +376,6 @@
                     <!-- end -->
                     </div>
               <!-- card-body modalBody end -->
-              
                 </div>
               </div>
             </div>
@@ -405,6 +383,8 @@
         <!-- test End -->
       </div>
     </div>
+
+    
 
     <!--rule delete and create-->
     <script src="js/rule_cd.js"></script>
