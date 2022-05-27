@@ -70,8 +70,12 @@ function myCreateFunction() {
 }
 
 function myDeleteFunction(r) {
-    if(cnt_r==0){
-        cnt_r++;
+    var result=confirm("정말로 삭제하시겠습니까?");
+    if(result){
+        alert('삭제되었습니다.');
+    }
+    else{
+        return false;
     }
     ccount--;
     cnt_r_m+=1;
