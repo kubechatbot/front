@@ -240,7 +240,7 @@
                       type="button"
                       class="btn btn-primary session_btn"
                       data-toggle="modal"
-                      data-target="#exampleModalCenter"
+                      data-target="#createModal"
                     >
                       <i class="ti-plus"></i>세션 생성
                     </button>
@@ -258,40 +258,25 @@
                         <tr>
                           <th scope="row">1</th>
                           <td class="long-wd">세션 1 입니다.</td>
-                          <td>정보</td>
-                          <td class="color-success text-center">편집</td>
-                          <td>
-                            <button
-                              type="button"
-                              class="btn btn-danger btn-rounded"
-                            >
-                              삭제
-                            </button>
+                          <td
+                            class="btn"
+                            data-toggle="modal"
+                            data-target="#infoModal"
+                          >
+                            정보
                           </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>세션 2 입니다.</td>
-                          <td>정보</td>
-                          <td class="color-success text-center">편집</td>
-                          <td>
-                            <button
-                              type="button"
-                              class="btn btn-danger btn-rounded"
-                            >
-                              삭제
-                            </button>
+                          <td
+                            class="btn color-success text-center"
+                            data-toggle="modal"
+                            data-target="#editModal"
+                          >
+                            편집
                           </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>세션 3 입니다.</td>
-                          <td><i class="fa-solid fa-circle-info"></i>정보</td>
-                          <td class="color-success text-center">편집</td>
                           <td>
                             <button
                               type="button"
                               class="btn btn-danger btn-rounded"
+                              onclick="myRemovemsg()"
                             >
                               삭제
                             </button>
@@ -300,10 +285,10 @@
                       </tbody>
                     </table>
 
-                    <!-- Modal -->
+                    <!-- createModal Start-->
                     <div
                       class="modal"
-                      id="exampleModalCenter"
+                      id="createModal"
                       tabindex="-1"
                       role="dialog"
                       data-backdrop="static"
@@ -325,7 +310,6 @@
                           <div class="modal-body">
                             <!-- <p>Modal body text goes here.</p> -->
 
-                            <!-- test Start -->
                             <!-- Start Page Content -->
                             <div class="row justify-content-center">
                               <div class="col-lg-12">
@@ -425,6 +409,7 @@
                                                 class="input-group input-group-rounded"
                                               >
                                                 <input
+                                                  id="ruleName"
                                                   type="text"
                                                   placeholder="Rule name"
                                                   name="Search"
@@ -528,7 +513,307 @@
                                         전체요약
                                       </div>
                                     </div>
+                                    <!-- end -->
+                                  </div>
+                                  <!-- card-body modalBody end -->
 
+                                  <div
+                                    class="col-lg-8 d-flex justify-content-center m-auto"
+                                  >
+                                    <button
+                                      type="button"
+                                      class="btn btn-primary make-btn"
+                                      onclick="myCreatemsg(); createSession()"
+                                      data-dismiss="modal"
+                                    >
+                                      생성
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- End Page Content -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- createModal End -->
+                    <!-- infoModal Start-->
+                    <div
+                      class="modal"
+                      id="infoModal"
+                      tabindex="-1"
+                      role="dialog"
+                      data-backdrop="static"
+                      data-keyboard="false"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h3 class="modal-title">Session 정보</h3>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <p>Modal body text goes here.</p> -->
+
+                            <!-- Start Page Content -->
+                            <div class="row justify-content-center">
+                              <div class="col-lg-12">
+                                <div class="card">
+                                  <div class="card-body modalBody">
+                                    <p>챗봇종류</p>
+                                    <p>챗봇종류</p>
+                                    <p>챗봇종류</p>
+                                    <p>챗봇종류</p>
+                                    <p>챗봇종류</p>
+                                    <p>챗봇종류</p>
+                                    <p>챗봇종류</p>
+                                  </div>
+                                  <!-- card-body modalBody end -->
+                                </div>
+                              </div>
+                            </div>
+                            <!-- End Page Content -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- infoModal End -->
+                    <!-- editModal Start-->
+                    <div
+                      class="modal"
+                      id="editModal"
+                      tabindex="-1"
+                      role="dialog"
+                      data-backdrop="static"
+                      data-keyboard="false"
+                    >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h3 class="modal-title">Session Edit</h3>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- <p>Modal body text goes here.</p> -->
+
+                            <!-- Start Page Content -->
+                            <div class="row justify-content-center">
+                              <div class="col-lg-12">
+                                <div class="card">
+                                  <div class="card-body modalBody">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                      <li class="nav-item">
+                                        <a
+                                          class="nav-link active"
+                                          data-toggle="tab"
+                                          href="#step1-1"
+                                          role="tab"
+                                          ><span class="hidden-sm-up"
+                                            ><i class="ti-home"></i
+                                          ></span>
+                                          <span class="hidden-xs-down"
+                                            >1단계</span
+                                          ></a
+                                        >
+                                      </li>
+                                      <li class="nav-item">
+                                        <a
+                                          class="nav-link"
+                                          data-toggle="tab"
+                                          href="#step2-1"
+                                          role="tab"
+                                          ><span class="hidden-sm-up"
+                                            ><i class="ti-user"></i
+                                          ></span>
+                                          <span class="hidden-xs-down"
+                                            >2단계</span
+                                          ></a
+                                        >
+                                      </li>
+                                      <li class="nav-item">
+                                        <a
+                                          class="nav-link"
+                                          data-toggle="tab"
+                                          href="#step3-1"
+                                          role="tab"
+                                          ><span class="hidden-sm-up"
+                                            ><i class="ti-email"></i
+                                          ></span>
+                                          <span class="hidden-xs-down"
+                                            >3단계</span
+                                          ></a
+                                        >
+                                      </li>
+                                    </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                      <div
+                                        class="tab-pane p-20 active"
+                                        id="step1-1"
+                                        role="tabpanel"
+                                      >
+                                        <div class="basic-form">
+                                          <form>
+                                            <div class="form-group mt-4">
+                                              <label>챗봇 종류 </label>
+                                              <div class="checkbox">
+                                                <input
+                                                  type="checkbox"
+                                                  id="chkbox"
+                                                />
+                                                Rule 기반
+                                                <input
+                                                  type="checkbox"
+                                                  id="chkbox"
+                                                />
+                                                인공지능
+                                                <input
+                                                  type="checkbox"
+                                                  id="chkbox"
+                                                />
+                                                검색기반
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label>Rule 설정</label>
+                                              <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                              <p
+                                                class="text-muted m-b-15 f-s-12"
+                                              >
+                                                챗봇의 Rule 이름을 검색하세요.
+                                              </p>
+                                              <div
+                                                class="input-group input-group-rounded"
+                                              >
+                                                <input
+                                                  type="text"
+                                                  placeholder="Rule name"
+                                                  name="Search"
+                                                  class="form-control"
+                                                />
+                                                <span class="input-group-btn"
+                                                  ><button
+                                                    class="btn btn-primary btn-group-right"
+                                                    type="submit"
+                                                  >
+                                                    <i
+                                                      class="ti-search"
+                                                    ></i></button
+                                                ></span>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label>도메인 설정</label>
+                                              <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                              <p
+                                                class="text-muted m-b-15 f-s-12"
+                                              >
+                                                도메인 이름을 검색하세요.
+                                              </p>
+                                              <div
+                                                class="input-group input-group-rounded"
+                                              >
+                                                <input
+                                                  id="domainName"
+                                                  type="text"
+                                                  placeholder="Domain name"
+                                                  name="Search"
+                                                  class="form-control"
+                                                />
+                                                <span class="input-group-btn"
+                                                  ><button
+                                                    class="btn btn-primary btn-group-right"
+                                                    type="submit"
+                                                  >
+                                                    <i
+                                                      class="ti-search"
+                                                    ></i></button
+                                                ></span>
+                                              </div>
+                                            </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="tab-pane p-20"
+                                        id="step2-1"
+                                        role="tabpanel"
+                                      >
+                                        <div class="basic-form">
+                                          <form>
+                                            <div class="form-group mt-4">
+                                              <label>자원 그룹</label>
+                                              <div class="checkbox">
+                                                <input
+                                                  type="checkbox"
+                                                  id="chkbox"
+                                                />
+                                                AWS-seoul
+                                                <input
+                                                  type="checkbox"
+                                                  id="chkbox"
+                                                />
+                                                GOOGLE
+                                                <input
+                                                  type="checkbox"
+                                                  id="chkbox"
+                                                />
+                                                기타
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label>자원할당 (cpu/Ram)</label>
+                                              <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
+                                            </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="tab-pane p-20"
+                                        id="step3-1"
+                                        role="tabpanel"
+                                      >
+                                        전체요약
+                                      </div>
+                                    </div>
                                     <!-- end -->
                                   </div>
                                   <!-- card-body modalBody end -->
@@ -540,32 +825,21 @@
                                       type="button"
                                       class="btn btn-primary make-btn"
                                       href="#"
+                                      onclick="myEditmsg()"
+                                      data-dismiss="modal"
                                     >
-                                      생성
+                                      수정완료
                                     </button>
                                   </div>
                                 </div>
                               </div>
                             </div>
                             <!-- End Page Content -->
-                            <!-- test End -->
                           </div>
-                          <!-- <div class="modal-footer">
-      <button type="button" class="btn btn-primary">
-        Save changes
-      </button>
-      <button
-        type="button"
-        class="btn btn-secondary"
-        data-dismiss="modal"
-      >
-        Close
-      </button>
-    </div> -->
                         </div>
                       </div>
                     </div>
-                    <!-- Modal End -->
+                    <!-- editModal End -->
                   </div>
                 </div>
               </div>
@@ -601,17 +875,6 @@
     <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
-
-    <script>
-      // 모달 버튼에 이벤트를 건다.
-      $("#openModalBtn").on("click", function () {
-        $("#exampleModalCenter").modal("show");
-      });
-      // 모달 안의 취소 버튼에 이벤트를 건다.
-      $("#closeModalBtn").on("click", function () {
-        // $("#exampleModalCenter").modal("hide");
-        $("#exampleModalCenter").click();
-      });
-    </script>
+    <script src="js/session.js"></script>
   </body>
 </html>
