@@ -1,13 +1,32 @@
 // 각 입력값의 참조를 저장할 전역변수 선언 - 7개 (챗봇종류, 룰설정, 룰이름, 도메인설정,,,)
+var botType = document.getElementById("chatbotType"); // 챗봇종류
+const ruleSet = document.getElementById("ruleSet"); // Rule 설정
+const ruleName = document.getElementById("ruleName"); // 챗봇 룰 이름
+const domainSet = document.getElementById("domainSet"); // 도메인 설정
+const domainName = document.getElementById("domainName"); // 도메인 이름
+const resGroup = document.getElementById("resGroup"); // 자원그룹
+const resAlloc = document.getElementById("resAlloc"); // 자원할당
 
 var ccount = 0;
 
 // Session Three function
 function createSession() {
-  const ruleName = document.getElementById("ruleName");
-  const myRule = ruleName.value; // 변수에 input요소의 최신 값 저장
-  ruleName.value = "";
+  const mybotType = botType.value;
+  const myruleSet = ruleSet.value;
+  const myRule = ruleName.value;
+  const mydomainSet = domainSet.value;
+  const mydomainName = domainName.value;
+  const myresGroup = resGroup.value;
+  const myresAlloc = resAlloc.value;
+
+  //print
+  console.log(mybotType);
   console.log(myRule);
+  console.log(myruleSet);
+  console.log(mydomainSet);
+  console.log(mydomainName);
+  console.log(myresGroup);
+  console.log(myresAlloc);
 
   // 테이블 요소 추가하는 기능 (ing)
   // const table = document.getElementById("myTable"); // <tbody> 요소
@@ -63,6 +82,12 @@ function removeSession() {
     table.clickedRowIndex = this.rowIndex;
   };
 }
+
+//  modal 닫으면 초기화 : JQuery 사용
+$(".modal").on("hidden.bs.modal", function (e) {
+  $(this).find("form")[0].reset();
+  $(this).find("form")[1].reset();
+});
 
 // Three alert message
 function myCreatemsg() {

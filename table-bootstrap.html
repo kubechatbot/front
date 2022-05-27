@@ -375,27 +375,37 @@
                                           <form>
                                             <div class="form-group mt-4">
                                               <label>챗봇 종류 </label>
-                                              <div class="checkbox">
+                                              <div>
+                                                <!-- radio : 여러개중 하나만 선택하게 하려면 name 속성을 같은 값으로 지정해주어야함. -->
                                                 <input
-                                                  type="checkbox"
-                                                  id="chkbox"
+                                                  value="rule"
+                                                  type="radio"
+                                                  id="chatbotType"
+                                                  name="group"
                                                 />
                                                 Rule 기반
                                                 <input
-                                                  type="checkbox"
-                                                  id="chkbox"
+                                                  value="ai"
+                                                  type="radio"
+                                                  id="chatbotType"
+                                                  name="group"
                                                 />
                                                 인공지능
                                                 <input
-                                                  type="checkbox"
-                                                  id="chkbox"
+                                                  value="search"
+                                                  type="radio"
+                                                  id="chatbotType"
+                                                  name="group"
                                                 />
                                                 검색기반
                                               </div>
                                             </div>
                                             <div class="form-group">
                                               <label>Rule 설정</label>
-                                              <select class="form-control">
+                                              <select
+                                                class="form-control"
+                                                id="ruleSet"
+                                              >
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -432,7 +442,10 @@
                                             </div>
                                             <div class="form-group">
                                               <label>도메인 설정</label>
-                                              <select class="form-control">
+                                              <select
+                                                class="form-control"
+                                                id="domainSet"
+                                              >
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -450,6 +463,7 @@
                                                 class="input-group input-group-rounded"
                                               >
                                                 <input
+                                                  id="domainName"
                                                   type="text"
                                                   placeholder="Domain name"
                                                   name="Search"
@@ -477,28 +491,39 @@
                                         <div class="basic-form">
                                           <form>
                                             <div class="form-group mt-4">
-                                              <label>자원 그룹</label>
-                                              <div class="checkbox">
+                                              <label>자원그룹 </label>
+                                              <div>
                                                 <input
-                                                  type="checkbox"
-                                                  id="chkbox"
+                                                  value="aws"
+                                                  type="radio"
+                                                  id="resGroup"
+                                                  name="resources"
                                                 />
                                                 AWS-seoul
                                                 <input
-                                                  type="checkbox"
-                                                  id="chkbox"
+                                                  value="google"
+                                                  type="radio"
+                                                  id="resGroup"
+                                                  name="resources"
                                                 />
                                                 GOOGLE
                                                 <input
-                                                  type="checkbox"
-                                                  id="chkbox"
+                                                  value="etc"
+                                                  type="radio"
+                                                  id="resGroup"
+                                                  name="resources"
                                                 />
                                                 기타
                                               </div>
                                             </div>
+
+                                            </div>
                                             <div class="form-group">
                                               <label>자원할당 (cpu/Ram)</label>
-                                              <select class="form-control">
+                                              <select
+                                                class="form-control"
+                                                id="resAlloc"
+                                              >
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
@@ -507,7 +532,6 @@
                                               </select>
                                             </div>
                                           </form>
-                                        </div>
                                       </div>
                                       <div
                                         class="tab-pane p-20"
@@ -528,7 +552,9 @@
                                       type="button"
                                       class="btn btn-primary make-btn"
                                       onclick="myCreatemsg(); createSession()"
+                                      href="#step1"
                                       data-dismiss="modal"
+                                      
                                     >
                                       생성
                                     </button>
@@ -561,7 +587,7 @@
                               data-dismiss="modal"
                               aria-label="Close"
                             >
-                              <span aria-hidden="true">&times;</span>
+                              <span aria-hidden="true" >&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
@@ -572,13 +598,13 @@
                               <div class="col-lg-12">
                                 <div class="card">
                                   <div class="card-body modalBody">
-                                    <p>챗봇종류</p>
-                                    <p>챗봇종류</p>
-                                    <p>챗봇종류</p>
-                                    <p>챗봇종류</p>
-                                    <p>챗봇종류</p>
-                                    <p>챗봇종류</p>
-                                    <p>챗봇종류</p>
+                                    <p>챗봇 종류</p>
+                                    <p>Rule 설정</p>
+                                    <p>챗봇의 rule 이름</p>
+                                    <p>도메인 설정</p>
+                                    <p>도메인 이름</p>
+                                    <p>자원그룹</p>
+                                    <p>자원할당</p>
                                   </div>
                                   <!-- card-body modalBody end -->
                                 </div>
@@ -778,21 +804,23 @@
                                         <div class="basic-form">
                                           <form>
                                             <div class="form-group mt-4">
+
+                                              
                                               <label>자원 그룹</label>
                                               <div class="checkbox">
                                                 <input
                                                   type="checkbox"
-                                                  id="chkbox"
+                                                  value="aws"
                                                 />
                                                 AWS-seoul
                                                 <input
                                                   type="checkbox"
-                                                  id="chkbox"
+                                                  value="google"
                                                 />
                                                 GOOGLE
                                                 <input
                                                   type="checkbox"
-                                                  id="chkbox"
+                                                  value="etc"
                                                 />
                                                 기타
                                               </div>
@@ -815,7 +843,7 @@
                                         id="step3-1"
                                         role="tabpanel"
                                       >
-                                        전체요약
+                                        전체요약 (제거예정)
                                       </div>
                                     </div>
                                     <!-- end -->
