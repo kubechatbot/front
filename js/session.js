@@ -1,25 +1,104 @@
+const createBtn = document.getElementById("createSession");
+const infoBtn = document.getElementById("infoBtn");
+const editBtn = document.getElementById("editBtn");
+
+function handleSessionInfo() {
+  console.log("this is test");
+}
+
+const modal = document.getElementById("infoModalContent");
+const content1 = document.createElement("p");
+const content2 = document.createElement("p");
+const content3 = document.createElement("p");
+const content4 = document.createElement("p");
+const content5 = document.createElement("p");
+const content6 = document.createElement("p");
+const content7 = document.createElement("p");
+content1.innerHTML = "챗봇 종류 : ";
+content2.innerHTML = "Rule 설정 : ";
+content3.innerHTML = "챗봇의 rule 이름 : ";
+content4.innerHTML = "도메인 설정 : ";
+content5.innerHTML = "도메인 이름 : ";
+content6.innerHTML = "자원그룹 : ";
+content7.innerHTML = "자원할당 : ";
+modal.appendChild(content1);
+modal.appendChild(content2);
+modal.appendChild(content3);
+modal.appendChild(content4);
+modal.appendChild(content5);
+modal.appendChild(content6);
+modal.appendChild(content7);
+
+const data = [
+  {
+    chatbotType: "ai",
+    ruleSet: "test rule",
+    ruleName: "한양 챗봇",
+    domainSet: "3",
+    domainName: "test domain",
+    resGroup: "google",
+    resAllocat: "4",
+  },
+  {
+    chatbotType: "rule",
+    ruleSet: "test2 rule",
+    ruleName: "kt ds 챗봇",
+    domainSet: "5",
+    domainName: "test2 domain",
+    resGroup: "aws",
+    resAllocat: "2",
+  },
+  {
+    chatbotType: "rule",
+    ruleSet: "test2 rule",
+    ruleName: "솦트 챗봇",
+    domainSet: "2",
+    domainName: "test3 domain",
+    resGroup: "etc",
+    resAllocat: "2",
+  },
+];
+
+// console.log(data[0].id);
+// console.log(data.length);
+
+const table = document.getElementById("myTable");
+
 // 각 입력값의 참조를 저장할 전역변수 선언 - 7개 (챗봇종류, 룰설정, 룰이름, 도메인설정,,,)
-var botType = document.getElementById("chatbotType"); // 챗봇종류
+var botType = document.getElementsByName("group"); // 챗봇종류
 const ruleSet = document.getElementById("ruleSet"); // Rule 설정
 const ruleName = document.getElementById("ruleName"); // 챗봇 룰 이름
 const domainSet = document.getElementById("domainSet"); // 도메인 설정
 const domainName = document.getElementById("domainName"); // 도메인 이름
-const resGroup = document.getElementById("resGroup"); // 자원그룹
+var resGroup = document.getElementsByName("resources"); // 자원그룹
 const resAlloc = document.getElementById("resAlloc"); // 자원할당
 
 var ccount = 0;
 
-// Session Three function
-function createSession() {
-  const mybotType = botType.value;
+// 세션 생성
+function handleMakeSession(id) {
+  // get value
+  let mybotType;
   const myruleSet = ruleSet.value;
   const myRule = ruleName.value;
   const mydomainSet = domainSet.value;
   const mydomainName = domainName.value;
-  const myresGroup = resGroup.value;
+  let myresGroup;
   const myresAlloc = resAlloc.value;
 
-  //print
+  botType.forEach(node => {
+    if (node.checked) {
+      mybotType = node.value;
+    }
+  });
+
+  resGroup.forEach(node => {
+    if (node.checked) {
+      myresGroup = node.value;
+    }
+  });
+
+  //print value
   console.log(mybotType);
   console.log(myRule);
   console.log(myruleSet);
@@ -28,59 +107,52 @@ function createSession() {
   console.log(myresGroup);
   console.log(myresAlloc);
 
-  // 테이블 요소 추가하는 기능 (ing)
-  // const table = document.getElementById("myTable"); // <tbody> 요소
-  // const testDiv = document.createElement("div"); // <div> 요소
-  // const tableR = document.getElementById("tableRow"); // <tr> 요소
-  // const Num = document.getElementById("tableNum"); //<th> 요소
+  // insert Row & Cell
+  const table = document.getElementById("myTable"); // <tbody> 요소 참조
+  const tableR = document.createElement("tr"); // <tr> 요소생성
+  const tNum = document.createElement("th"); //<th> 요소생성
+  const tData1 = document.createElement("td"); // <td> 요소생성
+  const tData2 = document.createElement("td"); // <td> 요소생성
+  const tData3 = document.createElement("td"); // <td> 요소생성
+  const tData4 = document.createElement("td"); // <td> 요소생성
 
-  // testDiv.appendChild(tableR);
-  // table.appendChild(testDiv);
+  // make table row
+  tableR.setAttribute("key", id); // <tr key=id>
+  tData1.setAttribute("class", "long-wd");
+  tNum.textContent = id;
+  tData1.innerHTML = id + "번 챗봇이름입니다."; //data[id].ruleName
+  tData2.innerHTML =
+    "<button class='btn btn-success btn-rounded' data-toggle='modal' data-target='#infoModal' id='infoBtn'>정보</button>";
+  tData3.innerHTML =
+    "<button class='btn btn-warning btn-rounded' data-toggle='modal' data-target='#editModal' id='editBtn'>편집</button>";
+  tData4.innerHTML =
+    "<button class='btn btn-danger btn-rounded' onclick='myRemovemsg()'>삭제</button>";
+
+  tableR.appendChild(tNum); //<tr><th></th></tr>
+  tableR.appendChild(tData1);
+  tableR.appendChild(tData2);
+  tableR.appendChild(tData3);
+  tableR.appendChild(tData4);
+
+  table.appendChild(tableR);
+  ccount++;
 }
 
-// (2) inner HTML 사용
-// function creatSession2() {
-//   ccount++;
-//   var table = document.getElementById("myTable");
-//   // var new_rule = document.getElementById('newRule');
-//   var row = table.insertRow(-1); // 주어진 <table>안에 새로운 row인 <tr>를 삽입하는 메소드
-//   row.onmouseover = function () {
-//     // index 순서 갱신.
-//     table.clickedRowIndex = this.rowIndex;
-//   };
-
-//   var cell1 = row.insertCell(0); // 새로운 row에 새로운 cell 삽입
-//   var cell2 = row.insertCell(1);
-//   var cell3 = row.insertCell(2);
-//   var cell4 = row.insertCell(3);
-//   var cell5 = row.insertCell(4);
-
-//   cell1.innerHTML = "<tr>" + ccount;
-//   cell2.innerHTML = "";
-//   cell3.innerHTML =
-//     "<button
-//     type="button"
-//     class="btn btn-success m-b-10 m-l-5"
-//     data-toggle="modal"
-//     data-target="#InfoModalCenter"
-//   ><i>정보</i></button>";
-//   cell4.innerHTML =
-//     "<button style='border:none;background-color: inherit;'><i>편집</i></button>";
-//   cell5.innerHTML =
-//     "<button style='border:none;background-color: inherit;' onclick='removeSession(); myRemovemsg();'><i>삭제</i></button>";
-// }
-
-// EventListens -> event 생성
+// 이벤트 리스너
+createBtn.addEventListener("click", myCreatemsg);
+// infoBtn.addEventListener("click", handleSessionInfo);
+// editBtn.addEventListener("click", );
 
 function editSession() {}
 
 function removeSession() {
   var table = document.getElementById("myTable");
   var row = table.deleteRow(-1);
+}
 
-  row.onmouseover = function () {
-    table.clickedRowIndex = this.rowIndex;
-  };
+// init session list
+for (let i = 0; i < data.length; i++) {
+  handleMakeSession(ccount);
 }
 
 //  modal 닫으면 초기화 : JQuery 사용
@@ -92,7 +164,7 @@ $(".modal").on("hidden.bs.modal", function (e) {
 // Three alert message
 function myCreatemsg() {
   if (window.confirm(`세션을 생성하시겠습니까?`)) {
-    // onCreate(id);
+    handleMakeSession(ccount);
   }
 }
 
