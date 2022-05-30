@@ -1,6 +1,5 @@
 const data = [
   {
-    // id: "1",
     chatbotType: "ai",
     ruleSet: "test rule",
     ruleName: "한양 챗봇",
@@ -10,7 +9,6 @@ const data = [
     resAllocat: "4",
   },
   {
-    // id: "2",
     chatbotType: "rule",
     ruleSet: "test2 rule",
     ruleName: "kt ds 챗봇",
@@ -20,7 +18,6 @@ const data = [
     resAllocat: "2",
   },
   {
-    // id="3",
     chatbotType: "rule",
     ruleSet: "test2 rule",
     ruleName: "솦트 챗봇",
@@ -34,10 +31,15 @@ const data = [
 // console.log(data[0].id);
 // console.log(data.length);
 
+// 세션의 총 갯수를 나타냄. 개별적인 Id랑은 다른개념!
+var totalNum = 0;
+var sessionId = 0;
+var targetNum;
+
 const mycreateBtn = document.getElementById("createSession");
 const myinfoBtn = document.getElementById("infoBtn");
 const myeditBtn = document.getElementById("editBtn");
-const myremoveBtn = document.getElementById("removeBtn");
+const num = document.getElementById("totalNum");
 
 // Session Info Modal (fix)
 const modal = document.getElementById("infoModalContent");
@@ -60,16 +62,16 @@ modal.appendChild(content7);
 // Session Info Modal (active)
 function handleSessionInfo(id) {
   //tr를 getElementbyId로 가져와서 tr.id를 가져오기
-  modal.setAttribute("key", id);
+  // modal.setAttribute("key", id);
 
-  content1.textContent = "챗봇 종류 : " + data[0].chatbotType;
-  content2.textContent = "Rule 설정 : " + data[0].ruleSet;
-  content3.textContent = "챗봇의 rule 이름 : " + data[0].ruleName;
+  content1.textContent = "챗봇 종류 : " + data[id].chatbotType;
+  content2.textContent = "Rule 설정 : " + data[id].ruleSet;
+  content3.textContent = "챗봇의 rule 이름 : " + data[id].ruleName;
   content4.innerHTML = "도메인 설정 : ";
   content5.innerHTML = "도메인 이름 : ";
   content6.innerHTML = "자원그룹 : ";
   content7.innerHTML = "자원할당 : ";
-  console.log("정보 안의 id는 " + id + "입니다");
+  // console.log("정보 안의 id는 " + id + "입니다");
 }
 
 const table = document.getElementById("myTable");
@@ -82,9 +84,6 @@ const domainSet = document.getElementById("domainSet"); // 도메인 설정
 const domainName = document.getElementById("domainName"); // 도메인 이름
 var resGroup = document.getElementsByName("resources"); // 자원그룹
 const resAlloc = document.getElementById("resAlloc"); // 자원할당
-
-// 세션의 총 갯수를 나타냄. 개별적인 Id랑은 다른개념!
-var ccount = 0;
 
 // 세션 생성
 function handleMakeSession(id) {
@@ -131,36 +130,52 @@ function handleMakeSession(id) {
   tableR.setAttribute("key", id); // <tr key=id>
   tData1.setAttribute("class", "long-wd");
   tNum.textContent = id;
-  tData1.innerHTML = id + "번 챗봇이름입니다."; //data[cnt].ruleName
-  tData2.innerHTML =
-    "<button class='btn btn-success btn-rounded info" +
-    id +
-    "' data-toggle='modal' data-target='#infoModal' id='infoBtn'>정보</button>";
-  tData3.innerHTML =
-    "<button class='btn btn-warning btn-rounded' data-toggle='modal' data-target='#editModal' id='editBtn'>편집</button>";
-  tData4.innerHTML =
-    "<button class='btn btn-danger btn-rounded' id='removeBtn' key=' " +
-    id +
-    "'>삭제</button>";
-  // myinfoBtn.setAttribute("modalKey", id);
+  tData1.innerHTML = data[id].ruleName;
 
   tableR.appendChild(tNum); //<tr><th></th></tr>
   tableR.appendChild(tData1);
   tableR.appendChild(tData2);
   tableR.appendChild(tData3);
+
+  const infoBtn = document.createElement("button");
+  infoBtn.textContent = "정보";
+  infoBtn.setAttribute("class", "btn btn-success btn-rounded info");
+  infoBtn.setAttribute("data-toggle", "modal");
+  infoBtn.setAttribute("data-target", "#infoModal");
+  tData2.appendChild(infoBtn);
+  tableR.appendChild(tData2);
+
+  infoBtn.addEventListener("click", () => {
+    console.log("info button is clicked!");
+    targetNum = id;
+    console.log(targetNum);
+    handleSessionInfo(targetNum);
+  });
+
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "편집";
+  editBtn.setAttribute("class", "btn btn-warning btn-rounded");
+  editBtn.setAttribute("data-toggle", "modal");
+  editBtn.setAttribute("data-target", "#editModal");
+  tData3.appendChild(editBtn);
+  tableR.appendChild(tData3);
+
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "삭제";
+  removeBtn.setAttribute("class", "btn btn-danger btn-rounded");
+  tData4.appendChild(removeBtn);
   tableR.appendChild(tData4);
 
-  // 테스트용
-  const testBtn = document.createElement("button");
-  testBtn.textContent = "Test Button";
-  tableR.appendChild(testBtn);
-  //////////
-
   table.appendChild(tableR);
-  ccount++; // 전체갯수 늘리기
+  totalNum++; // table 전체갯수 늘리기
+  sessionId++;
 
-  testBtn.addEventListener("click", () => {
+  num.textContent = totalNum;
+
+  removeBtn.addEventListener("click", () => {
     if (window.confirm(`세션을 삭제하시겠습니까?`)) {
+      totalNum--;
+      num.textContent = totalNum;
       table.removeChild(tableR);
     }
   });
@@ -173,15 +188,9 @@ mycreateBtn.addEventListener("click", myCreatemsg);
 
 function editSession() {}
 
-function removeSession() {
-  ccount--;
-  // removeChild();
-  table.deleteRow(-1);
-}
-
 // init session list
 for (let i = 0; i < data.length; i++) {
-  handleMakeSession(ccount);
+  handleMakeSession(sessionId);
 }
 
 //  modal 닫으면 초기화 : JQuery 사용
@@ -193,7 +202,7 @@ $(".modal").on("hidden.bs.modal", function (e) {
 // Three alert message
 function myCreatemsg() {
   if (window.confirm(`세션을 생성하시겠습니까?`)) {
-    handleMakeSession(ccount);
+    handleMakeSession(sessionId);
   }
 }
 

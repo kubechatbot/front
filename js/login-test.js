@@ -48,6 +48,7 @@
 // }
 
 const loginBtn = document.querySelector("button");
+
 // take code
 const handleLogin = e => {
   e.preventDefault();
@@ -62,7 +63,9 @@ const handleLogin = e => {
     email: email,
     password: password,
   });
+
   console.log(data);
+
   var config = {
     method: "post",
     url: "https://asia-northeast3-kubechat-351013.cloudfunctions.net/member-4",
