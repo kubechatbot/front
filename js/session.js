@@ -15,10 +15,10 @@ const data = [
     domainSet: "5",
     domainName: "test2 domain",
     resGroup: "aws",
-    resAllocat: "2",
+    resAllocat: "1",
   },
   {
-    chatbotType: "rule",
+    chatbotType: "search",
     ruleSet: "test2 rule",
     ruleName: "솦트 챗봇",
     domainSet: "2",
@@ -28,8 +28,15 @@ const data = [
   },
 ];
 
-// console.log(data[0].id);
-// console.log(data.length);
+data[3] = {
+  chatbotType: "ai",
+  ruleSet: "챗봇 룰 설정",
+  ruleName: "우정 챗봇",
+  domainSet: "5",
+  domainName: "test4 domain",
+  resGroup: "google",
+  resAllocat: "3",
+};
 
 // 세션의 총 갯수를 나타냄. 개별적인 Id랑은 다른개념!
 var totalNum = 0;
@@ -40,6 +47,8 @@ const mycreateBtn = document.getElementById("createSession");
 const myinfoBtn = document.getElementById("infoBtn");
 const myeditBtn = document.getElementById("editBtn");
 const num = document.getElementById("totalNum");
+const h3 = document.createElement("h3");
+num.appendChild(h3);
 
 // Session Info Modal (fix)
 const modal = document.getElementById("infoModalContent");
@@ -67,11 +76,10 @@ function handleSessionInfo(id) {
   content1.textContent = "챗봇 종류 : " + data[id].chatbotType;
   content2.textContent = "Rule 설정 : " + data[id].ruleSet;
   content3.textContent = "챗봇의 rule 이름 : " + data[id].ruleName;
-  content4.innerHTML = "도메인 설정 : ";
-  content5.innerHTML = "도메인 이름 : ";
-  content6.innerHTML = "자원그룹 : ";
-  content7.innerHTML = "자원할당 : ";
-  // console.log("정보 안의 id는 " + id + "입니다");
+  content4.textContent = "도메인 설정 : " + data[id].domainSet;
+  content5.textContent = "도메인 이름 : " + data[id].domainName;
+  content6.textContent = "자원그룹 : " + data[id].resGroup;
+  content7.textContent = "자원할당 : " + data[id].resAllocat;
 }
 
 const table = document.getElementById("myTable");
@@ -86,7 +94,7 @@ var resGroup = document.getElementsByName("resources"); // 자원그룹
 const resAlloc = document.getElementById("resAlloc"); // 자원할당
 
 // 세션 생성
-function handleMakeSession(id) {
+function handleMakeSession(id, IsNew) {
   // get value
   let mybotType;
   const myruleSet = ruleSet.value;
@@ -117,6 +125,20 @@ function handleMakeSession(id) {
   // console.log(myresGroup);
   // console.log(myresAlloc);
 
+  // Add new Session data
+  if (IsNew == 1) {
+    data[id] = {
+      chatbotType: mybotType,
+      ruleSet: myruleSet,
+      ruleName: myRule,
+      domainSet: mydomainSet,
+      domainName: mydomainName,
+      resGroup: myresGroup,
+      resAllocat: myresAlloc,
+    };
+    console.log(data);
+  }
+
   // insert Row & Cell
   const table = document.getElementById("myTable"); // <tbody> 요소 참조
   const tableR = document.createElement("tr"); // <tr> 요소생성
@@ -129,8 +151,8 @@ function handleMakeSession(id) {
   // make table row
   tableR.setAttribute("key", id); // <tr key=id>
   tData1.setAttribute("class", "long-wd");
-  tNum.textContent = id;
-  tData1.innerHTML = data[id].ruleName;
+  tNum.textContent = "";
+  tData1.textContent = data[id].ruleName;
 
   tableR.appendChild(tNum); //<tr><th></th></tr>
   tableR.appendChild(tData1);
@@ -146,9 +168,7 @@ function handleMakeSession(id) {
   tableR.appendChild(tData2);
 
   infoBtn.addEventListener("click", () => {
-    console.log("info button is clicked!");
     targetNum = id;
-    console.log(targetNum);
     handleSessionInfo(targetNum);
   });
 
@@ -170,13 +190,15 @@ function handleMakeSession(id) {
   totalNum++; // table 전체갯수 늘리기
   sessionId++;
 
-  num.textContent = totalNum;
+  h3.textContent = totalNum;
 
   removeBtn.addEventListener("click", () => {
     if (window.confirm(`세션을 삭제하시겠습니까?`)) {
       totalNum--;
-      num.textContent = totalNum;
+      h3.textContent = totalNum;
       table.removeChild(tableR);
+      data[id] = null;
+      console.log(data);
     }
   });
 }
@@ -190,11 +212,11 @@ function editSession() {}
 
 // init session list
 for (let i = 0; i < data.length; i++) {
-  handleMakeSession(sessionId);
+  handleMakeSession(sessionId, 0);
 }
 
 //  modal 닫으면 초기화 : JQuery 사용
-$(".modal").on("hidden.bs.modal", function (e) {
+$(".modal1").on("hidden.bs.modal", function (e) {
   $(this).find("form")[0].reset();
   $(this).find("form")[1].reset();
 });
@@ -202,7 +224,7 @@ $(".modal").on("hidden.bs.modal", function (e) {
 // Three alert message
 function myCreatemsg() {
   if (window.confirm(`세션을 생성하시겠습니까?`)) {
-    handleMakeSession(sessionId);
+    handleMakeSession(sessionId, 1);
   }
 }
 
