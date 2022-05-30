@@ -16,6 +16,7 @@
     ></script>
     <title>Kub-Chat</title>
 
+
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -208,11 +209,17 @@
             <!-- /# column -->
             <div class="col-lg-12">
               <div class="card">
+
+                <!-- table title -->
                 <div class="card-title">
                   <h4>Session 상태</h4>
                 </div>
+
+                <!-- table body -->
                 <div class="card-body">
                   <div class="table-responsive">
+
+                    <!-- 자원사용량 table -->
                     <table class="table table-hover table1">
                       <thead>
                         <tr>
@@ -235,7 +242,7 @@
                       </tbody>
                     </table>
 
-                    <!-- Button trigger modal -->
+                    <!-- 세션 생성 Btn -->
                     <button
                       type="button"
                       class="btn btn-primary session_btn"
@@ -244,6 +251,8 @@
                     >
                       <i class="ti-plus"></i>세션 생성
                     </button>
+
+                    <!-- 세션현황 table -->
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -254,12 +263,16 @@
                           <th></th>
                         </tr>
                       </thead>
-                      <!-- table body Start -->
+
+                      <!-- 세션현황 table body Start -->
                       <tbody id="myTable">
-                        <!-- 동적인 요소들 추가될 예정 -->
+                        <!-- table row 추가되는 곳 -->
                       </tbody>
                       <!-- table body End -->
                     </table>
+                      <!-- 세션현황 table End -->
+
+                      <!-- Modal Part -->
 
                     <!-- createModal Start-->
                     <div
@@ -562,14 +575,13 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <!-- <p>Modal body text goes here.</p> -->
 
                             <!-- Start Page Content -->
                             <div class="row justify-content-center">
                               <div class="col-lg-12">
                                 <div class="card">
                                   <div class="card-body modalBody" id="infoModalContent">
-                                    
+                                    <!-- info 내용 들어가는 자리 -->
                                   </div>
                                   <!-- card-body modalBody end -->
                                 </div>
