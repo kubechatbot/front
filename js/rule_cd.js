@@ -155,7 +155,7 @@ const handleCreate = e => {
       method: "post",
       url: "http://34.64.167.59:8080/create",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
       data: data,
     };
