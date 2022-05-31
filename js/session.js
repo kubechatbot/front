@@ -80,6 +80,7 @@ const modal = document.getElementById("infoModalContent");
 const content1 = document.createElement("p");
 const content2 = document.createElement("p");
 const content3 = document.createElement("p");
+const content3_1 = document.createElement("p");
 const content4 = document.createElement("p");
 const content5 = document.createElement("p");
 const content6 = document.createElement("p");
@@ -89,7 +90,8 @@ const content8 = document.createElement("p");
 modal.appendChild(content1); // <div><p></p></div>
 modal.appendChild(content2); // <div><p></p></div>
 modal.appendChild(content3);
-// modal.appendChild(content4);
+
+modal.appendChild(content3_1);
 modal.appendChild(content5);
 modal.appendChild(content6);
 modal.appendChild(content7);
@@ -104,7 +106,8 @@ function handleSessionInfo(id) {
   content2.textContent = "Rule 설정 : " + data[id].ruleSet;
   content3.textContent = "챗봇의 rule 이름 : " + data[id].ruleName;
   // content4.textContent = "도메인 설정 : " + data[id].domainSet;
-  content5.textContent = "도메인 이름 : " + data[id].domainName;
+  content3_1.textContent = "접속 주소 : http://34.64.167.59:8080/";
+  content5.textContent = "접속 이름 : " + data[id].domainName;
   content6.textContent = "자원그룹 : " + data[id].resGroup;
   content7.textContent = "자원할당 (CPU) : " + data[id].resAllocat;
   content8.textContent = "자원할당 (RAM) : " + data[id].resAllocRam;
