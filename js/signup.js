@@ -3,23 +3,26 @@
 const loginBtn = document.querySelector("button");
 
 // take code
-const handleLogin = e => {
+const handleSignup = e => {
   e.preventDefault();
 
-  const email = document.querySelector("#email"),
-    password = document.querySelector("#password");
+  const username = document.querySelector("#val-username"),
+    email = document.querySelector("#val-email"),
+    password = document.querySelector("#val-password");
+  // confirm_password = document.querySelector("#val-confirm-password");
 
   const data = Qs.stringify({
+    username: username.value,
     email: email.value,
     password: password.value,
   });
 
-  // console.log(email.value);
+  console.log(username.value);
 
   setTimeout(() => {
     const config = {
       method: "post",
-      url: "https://asia-northeast3-kubechat-351013.cloudfunctions.net/member-4",
+      url: "https://asia-northeast3-kubechat-351013.cloudfunctions.net/member-5",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -33,9 +36,9 @@ const handleLogin = e => {
       })
       .catch(function (error) {
         console.log(error);
-        alert("로그인 중 에러 발생!");
+        alert("회원가입 중 에러 발생!");
       });
   });
 };
 
-loginBtn.addEventListener("click", handleLogin);
+loginBtn.addEventListener("click", handleSignup);
