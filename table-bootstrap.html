@@ -234,10 +234,10 @@
                           <td>RAM</td>
                           <td class="text-center">갯수</td>
                         </tr>
-                        <tr class="three-style">
-                          <td scope="row"><h3>(예정)</h3></td>
-                          <td><h3>(예정)</h3></td>
-                          <td class="text-center" id="totalNum"></td>
+                        <tr class="three-style" id="subtitle">
+                          <!-- <td scope="row"><h3>(예정)</h3></td>
+                          <td><h3>(예정)</h3></td> -->
+                          <!-- <td class="text-center" id="totalNum"></td> -->
                         </tr>
                       </tbody>
                     </table>
@@ -334,7 +334,7 @@
                                           ></a
                                         >
                                       </li>
-                                      <li class="nav-item">
+                                      <!-- <li class="nav-item">
                                         <a
                                           class="nav-link"
                                           data-toggle="tab"
@@ -347,7 +347,7 @@
                                             >3단계</span
                                           ></a
                                         >
-                                      </li>
+                                      </li> -->
                                     </ul>
                                     <!-- Tab panes -->
                                     <div class="tab-content">
@@ -359,7 +359,7 @@
                                         <div class="basic-form">
                                           <form>
                                             <div class="form-group mt-4">
-                                              <label>챗봇 종류 </label>
+                                              <label>챗봇 종류 </label><span class="text-danger"> *</span>
                                               <div>
                                                 <!-- radio : 여러개중 하나만 선택하게 하려면 name 속성을 같은 값으로 지정해주어야함. -->
                                                 <input
@@ -367,6 +367,7 @@
                                                   type="radio"
                                                   id="chatbotType"
                                                   name="group"
+                                                  required
                                                 />
                                                 Rule 기반
                                                 <input
@@ -386,7 +387,7 @@
                                               </div>
                                             </div>
                                             <div class="form-group">
-                                              <label>Rule 설정</label>
+                                              <label>Rule 설정</label><span class="text-danger"> *</span>
                                               <select
                                                 class="form-control"
                                                 id="ruleSet"
@@ -402,8 +403,9 @@
                                               <p
                                                 class="text-muted m-b-15 f-s-12"
                                               >
-                                                챗봇의 Rule 이름을 검색하세요.
+                                                챗봇의 Rule 이름을 검색하세요. <span class="text-danger">*</span>
                                               </p>
+                                              
                                               <div
                                                 class="input-group input-group-rounded"
                                               >
@@ -425,8 +427,8 @@
                                                 ></span>
                                               </div>
                                             </div>
-                                            <div class="form-group">
-                                              <label>도메인 설정</label>
+                                            <!-- <div class="form-group">
+                                              <label>도메인 설정</label><span class="text-danger"> *</span>
                                               <select
                                                 class="form-control"
                                                 id="domainSet"
@@ -437,12 +439,12 @@
                                                 <option>4</option>
                                                 <option>5</option>
                                               </select>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group">
                                               <p
                                                 class="text-muted m-b-15 f-s-12"
                                               >
-                                                도메인 이름을 검색하세요.
+                                                도메인 이름을 검색하세요. <span class="text-danger">*</span>
                                               </p>
                                               <div
                                                 class="input-group input-group-rounded"
@@ -476,7 +478,7 @@
                                         <div class="basic-form">
                                           <form>
                                             <div class="form-group mt-4">
-                                              <label>자원그룹 </label>
+                                              <label>자원그룹 </label><span class="text-danger">*</span>
                                               <div>
                                                 <input
                                                   value="aws"
@@ -504,7 +506,7 @@
 
                                             </div>
                                             <div class="form-group">
-                                              <label>자원할당 (cpu/Ram)</label>
+                                              <label>자원할당 (CPU)</label><span class="text-danger">*</span>
                                               <select
                                                 class="form-control"
                                                 id="resAlloc"
@@ -512,10 +514,23 @@
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
+                                                <option>3</option>
                                                 <option>4</option>
                                                 <option>5</option>
                                               </select>
                                             </div>
+
+                                            <div class="form-group">
+                                              <label>자원할당 (Ram)</label><span class="text-danger">*</span>
+                                              <select
+                                                class="form-control"
+                                                id="resAllocRam"
+                                              >
+                                                <option>500MB</option>
+                                                <option>1GB</option>
+                                              </select>
+                                            </div>
+
                                           </form>
                                       </div>
                                       <div
@@ -580,7 +595,7 @@
                             <div class="row justify-content-center">
                               <div class="col-lg-12">
                                 <div class="card">
-                                  <div class="card-body modalBody" id="infoModalContent">
+                                  <div class="card-body modalBody p-l-50" id="infoModalContent">
                                     <!-- info 내용 들어가는 자리 -->
                                   </div>
                                   <!-- card-body modalBody end -->
@@ -653,7 +668,7 @@
                                           ></a
                                         >
                                       </li>
-                                      <li class="nav-item">
+                                      <!-- <li class="nav-item">
                                         <a
                                           class="nav-link"
                                           data-toggle="tab"
@@ -666,7 +681,7 @@
                                             >3단계</span
                                           ></a
                                         >
-                                      </li>
+                                      </li> -->
                                     </ul>
                                     <!-- Tab panes -->
                                     <div class="tab-content">

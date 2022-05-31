@@ -27,3 +27,9 @@
 .long-wd {
   width: 850px;
 }
+
+.modalBody p {
+  color: black;
+  font-size: 15px;
+  padding: 5px;
+}
