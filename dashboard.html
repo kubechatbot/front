@@ -7,25 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
     <title>Kub-Chat</title>
+
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
 
+    <!-- Custom CSS -->
     <link href="css/lib/calendar2/semantic.ui.min.css" rel="stylesheet" />
     <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet" />
     <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
     <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
     <link href="css/helper.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <link href="css/dashboard.css" rel="stylesheet" />
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
       <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif] -->
   </head>
 
   <body class="fix-header fix-sidebar">
@@ -50,7 +54,7 @@
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
           <!-- Logo -->
           <div class="navbar-header">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand" href="index.html">
               <!-- Logo icon -->
               <!-- <b
                 ><img src="images/logo.png" alt="homepage" class="dark-logo"
@@ -125,7 +129,7 @@
                 </div>
               </li>
               <li>
-                <a class="has-arrow" href="dashboard.html" aria-expanded="false"
+                <a class="has-arrow" href="index.html" aria-expanded="false"
                   ><i class="fa fa-tachometer"></i
                   ><span class="hide-menu"
                     >요약
@@ -179,14 +183,14 @@
         <!-- Bread crumb -->
         <div class="row page-titles">
           <div class="col-md-5 align-self-center">
-            <h3 class="text-primary">통계</h3>
+            <h3 class="text-primary">Dashboard</h3>
           </div>
           <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <a href="javascript:void(0)">Home</a>
               </li>
-              <li class="breadcrumb-item active">통계</li>
+              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div>
         </div>
@@ -195,130 +199,71 @@
         <div class="container-fluid">
           <!-- Start Page Content -->
           <div class="row">
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-title">
-                  <h4>Yearly Sales</h4>
-                </div>
-                <div class="sales-chart">
-                  <canvas id="sales-chart"></canvas>
-                </div>
-              </div>
-            </div>
-            <!-- /# column -->
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-title">
-                  <h4>Team Total Completed</h4>
-                </div>
-                <div class="sales-chart">
-                  <canvas id="team-chart"></canvas>
-                </div>
-              </div>
-              <!-- /# card -->
-            </div>
-            <!-- /# column -->
-          </div>
-          <!-- /# row -->
-          <div class="row">
-            <!-- Bar Chart -->
-            <div class="col-sm-12 col-md-6">
-              <div class="panel">
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <h4>Bar chart</h4>
+            <!-- 시작 -->
+            <div class="col-md-4">
+              <div
+                class="card p-30 card1"
+                OnClick="location.href ='table-bootstrap.html'"
+                style="cursor: pointer"
+              >
+                <div class="media">
+                  <div class="media-left meida media-middle">
+                    <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
+                  </div>
+                  <div class="media-body media-text-right">
+                    <h2>시작</h2>
+                    <p class="m-b-0">세션 페이지로 이동합니다.</p>
                   </div>
                 </div>
-                <div class="panel-body">
-                  <canvas id="barChart"></canvas>
-                </div>
               </div>
             </div>
-            <!-- Radar Chart -->
-            <div class="col-sm-12 col-md-6">
-              <div class="panel">
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <h4>Rader chart</h4>
+            <!-- 자원사용량 -->
+            <div class="col-md-4">
+              <div class="card p-30 card3">
+                <div class="media">
+                  <div class="media-left meida media-middle">
+                    <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
+                  </div>
+                  <div class="media-body media-text-right">
+                    <h2>자원사용량</h2>
+                    <p class="m-b-0">사용중인 자원을 나타냅니다.</p>
                   </div>
                 </div>
-                <div class="panel-body">
-                  <canvas id="radarChart"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- Line Chart -->
-            <div class="col-sm-12 col-md-8">
-              <div class="panel panel-bd lobidrag">
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <h4>Line chart</h4>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <canvas id="lineChart"></canvas>
-                </div>
-              </div>
-            </div>
-            <!-- Pie Chart -->
-            <div class="col-sm-6 col-md-4">
-              <div class="panel">
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <h4>Pie chart</h4>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <canvas id="pieChart"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- Doughnut Chart -->
-            <div class="col-sm-6 col-md-4">
-              <div class="panel">
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <h4>Doughut chart</h4>
-                  </div>
-                </div>
-                <div class="panel-body">
+                <div class="media-body sty1">
                   <canvas id="doughutChart"></canvas>
                 </div>
               </div>
             </div>
-            <!-- Polar Chart -->
-            <div class="col-sm-6 col-md-4">
-              <div class="panel">
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <h4>Polar chart</h4>
+
+            <!-- 세션정보 -->
+            <div class="col-md-4">
+              <div class="card p-30 f-s-15">
+                <div class="media">
+                  <div class="media-left meida media-middle">
+                    <span
+                      ><i class="fa fa-archive f-s-40 color-warning"></i
+                    ></span>
+                  </div>
+                  <div class="media-body media-text-right">
+                    <h2>세션정보</h2>
+                    <p class="m-b-0">세션의 정보를 나타냅니다.</p>
                   </div>
                 </div>
-                <div class="panel-body">
-                  <canvas id="polarChart"></canvas>
-                </div>
-              </div>
-            </div>
-            <!-- Single Bar Chart -->
-            <div class="col-sm-6 col-md-4">
-              <div class="panel">
-                <div class="panel-heading">
-                  <div class="panel-title">
-                    <h4>Single Bar Chart</h4>
-                  </div>
-                </div>
-                <div class="panel-body">
-                  <canvas id="singelBarChart"></canvas>
-                </div>
+                <!-- <div class="media-body media-text-left sty2"> -->
+                <!-- <ul>
+                    <li>사용자 이름 :</li>
+                    <li>세션 이름 :</li>
+                    <li>생성 날짜 :</li>
+                    <li>사용 목적 :</li>
+                    <li>주소 :</li>
+                    <li>ID :</li>
+                  </ul> -->
+                <!-- </div> -->
               </div>
             </div>
           </div>
 
-          <!-- End PAge Content -->
+          <!-- End Page Content -->
         </div>
         <!-- End Container fluid  -->
         <!-- footer -->
@@ -342,10 +287,29 @@
     <script src="js/sidebarmenu.js"></script>
     <!--stickey kit -->
     <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
 
+    <!-- Amchart -->
+    <script src="js/lib/morris-chart/raphael-min.js"></script>
+    <script src="js/lib/morris-chart/morris.js"></script>
+    <script src="js/lib/morris-chart/dashboard1-init.js"></script>
+
+    <script src="js/lib/calendar-2/moment.latest.min.js"></script>
+    <!-- scripit init-->
+    <script src="js/lib/calendar-2/semantic.ui.min.js"></script>
+    <!-- scripit init-->
+    <script src="js/lib/calendar-2/prism.min.js"></script>
+    <!-- scripit init-->
+    <script src="js/lib/calendar-2/pignose.calendar.min.js"></script>
+    <!-- scripit init-->
+    <script src="js/lib/calendar-2/pignose.init.js"></script>
+
+    <script src="js/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/lib/owl-carousel/owl.carousel-init.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- scripit init-->
     <script src="js/lib/chart-js/Chart.bundle.js"></script>
     <script src="js/lib/chart-js/chartjs-init.js"></script>
-    <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
   </body>
 </html>

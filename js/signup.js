@@ -33,7 +33,7 @@ const handleSignup = e => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         alert("회원가입 성공!");
-        window.location.href = "../page-login.html";
+        window.location.href = "../index.html";
       })
       .catch(function (error) {
         console.log(error);

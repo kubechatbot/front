@@ -7,29 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
     <title>Kub-Chat</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet" />
-
     <!-- Custom CSS -->
-    <link href="css/lib/calendar2/semantic.ui.min.css" rel="stylesheet" />
-    <link href="css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet" />
-    <link href="css/lib/owl.carousel.min.css" rel="stylesheet" />
-    <link href="css/lib/owl.theme.default.min.css" rel="stylesheet" />
     <link href="css/helper.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <link href="css/dashboard.css" rel="stylesheet" />
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
       <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif] -->
+    <![endif]-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.js"
+      integrity="sha512-Qv1OSKmVsG3Y4WAKqvlcL/KllfceErp2+ZfNsQtox5nZtQKL86CVfbjmak7A+ka3jo7BwvFXa47vHEBs8QKq7Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
 
   <body class="fix-header fix-sidebar">
@@ -49,231 +47,63 @@
     </div>
     <!-- Main wrapper  -->
     <div id="main-wrapper">
-      <!-- header header  -->
-      <div class="header">
-        <nav class="navbar top-navbar navbar-expand-md navbar-light">
-          <!-- Logo -->
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
-              <!-- Logo icon -->
-              <!-- <b
-                ><img src="images/logo.png" alt="homepage" class="dark-logo"
-              /></b> -->
-              <b>Kub-Chat</b>
-              <!--End Logo icon -->
-              <!-- Logo text -->
-              <!-- <span
-                ><img
-                  src="images/logo-text.png"
-                  alt="homepage"
-                  class="dark-logo"
-              /></span> -->
-            </a>
-          </div>
-          <!-- End Logo -->
-          <div class="navbar-collapse">
-            <!-- toggle and nav items -->
-            <ul class="navbar-nav mr-auto mt-md-0">
-              Welcome!
-            </ul>
-            <!-- User profile and search -->
-            <ul class="navbar-nav my-lg-0">
-              <!-- Profile -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle text-muted"
-                  href="#"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  ><img src="images/users/5.jpg" alt="user" class="profile-pic"
-                /></a>
-                <div class="dropdown-menu dropdown-menu-right animated zoomIn">
-                  <ul class="dropdown-user">
-                    <li>
-                      <a href="#"><i class="ti-user"></i> Profile</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="ti-wallet"></i> Balance</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="ti-email"></i> Inbox</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="ti-settings"></i> Setting</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-power-off"></i> Logout</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <!-- End header header -->
-      <!-- Left Sidebar  -->
-      <div class="left-sidebar">
-        <!-- Sidebar scroll-->
-        <div class="scroll-sidebar">
-          <!-- Sidebar navigation-->
-          <nav class="sidebar-nav">
-            <ul id="sidebarnav">
-              <li class="nav-devider"></li>
-              <li class="nav-label">
-                <div class="three-label">
-                  <i class="ti-menu"></i>
-                  <i class="fa fa-bell"></i>
-                  <i class="fa fa-folder-open"></i>
-                </div>
-              </li>
-              <li>
-                <a class="has-arrow" href="index.html" aria-expanded="false"
-                  ><i class="fa fa-tachometer"></i
-                  ><span class="hide-menu"
-                    >요약
-                    <span class="label label-rouded label-primary pull-right"
-                      >2</span
-                    >
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="has-arrow"
-                  href="table-bootstrap.html"
-                  aria-expanded="false"
-                  ><i class="fa fa-envelope"></i
-                  ><span class="hide-menu">세션</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="has-arrow"
-                  href="layout-fix-header.html"
-                  aria-expanded="false"
-                  ><i class="fa fa-bar-chart"></i
-                  ><span class="hide-menu">Rule 설정</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="has-arrow"
-                  href="chart-chartjs.html"
-                  aria-expanded="false"
-                  ><i class="fa fa-suitcase"></i
-                  ><span class="hide-menu"
-                    >통계
-                    <span class="label label-rouded label-warning pull-right"
-                      >6</span
-                    ></span
-                  ></a
-                >
-              </li>
-            </ul>
-          </nav>
-          <!-- End Sidebar navigation -->
-        </div>
-        <!-- End Sidebar scroll-->
-      </div>
-      <!-- End Left Sidebar  -->
-      <!-- Page wrapper  -->
-      <div class="page-wrapper">
-        <!-- Bread crumb -->
-        <div class="row page-titles">
-          <div class="col-md-5 align-self-center">
-            <h3 class="text-primary">Dashboard</h3>
-          </div>
-          <div class="col-md-7 align-self-center">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="javascript:void(0)">Home</a>
-              </li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-          </div>
-        </div>
-        <!-- End Bread crumb -->
-        <!-- Container fluid  -->
+      <div class="unix-login">
         <div class="container-fluid">
-          <!-- Start Page Content -->
-          <div class="row">
-            <!-- 시작 -->
-            <div class="col-md-4">
-              <div
-                class="card p-30 card1"
-                OnClick="location.href ='table-bootstrap.html'"
-                style="cursor: pointer"
-              >
-                <div class="media">
-                  <div class="media-left meida media-middle">
-                    <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
-                  </div>
-                  <div class="media-body media-text-right">
-                    <h2>시작</h2>
-                    <p class="m-b-0">세션 페이지로 이동합니다.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- 자원사용량 -->
-            <div class="col-md-4">
-              <div class="card p-30 card3">
-                <div class="media">
-                  <div class="media-left meida media-middle">
-                    <span><i class="fa fa-usd f-s-40 color-primary"></i></span>
-                  </div>
-                  <div class="media-body media-text-right">
-                    <h2>자원사용량</h2>
-                    <p class="m-b-0">사용중인 자원을 나타냅니다.</p>
-                  </div>
-                </div>
-                <div class="media-body sty1">
-                  <canvas id="doughutChart"></canvas>
-                </div>
-              </div>
-            </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-4">
+              <div class="login-content card">
+                <div class="login-form">
+                  <h4>Login</h4>
+                  <!-- <form> -->
+                  <form action="/ajax" method="post">
+                    <div class="form-group">
+                      <label>Email address</label>
+                      <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="Password"
+                      />
+                    </div>
+                    <div class="checkbox">
+                      <label> <input type="checkbox" /> Remember Me </label>
+                      <!-- <label class="pull-right"> -->
+                      <!-- <a href="#">Forgotten Password?</a> -->
+                      <!-- </label> -->
+                    </div>
 
-            <!-- 세션정보 -->
-            <div class="col-md-4">
-              <div class="card p-30 f-s-15">
-                <div class="media">
-                  <div class="media-left meida media-middle">
-                    <span
-                      ><i class="fa fa-archive f-s-40 color-warning"></i
-                    ></span>
-                  </div>
-                  <div class="media-body media-text-right">
-                    <h2>세션정보</h2>
-                    <p class="m-b-0">세션의 정보를 나타냅니다.</p>
-                  </div>
+                    <button
+                      id="signIn"
+                      type="submit"
+                      class="btn btn-primary btn-flat m-b-30 m-t-30 signIn"
+                    >
+                      Sign in
+                    </button>
+                    <div class="register-link m-t-15 text-center">
+                      <p>
+                        Don't have account ?
+                        <a href="form-validation.html"> Sign Up Here</a>
+                      </p>
+                    </div>
+                  </form>
+                  <div calss="result"></div>
                 </div>
-                <!-- <div class="media-body media-text-left sty2"> -->
-                <!-- <ul>
-                    <li>사용자 이름 :</li>
-                    <li>세션 이름 :</li>
-                    <li>생성 날짜 :</li>
-                    <li>사용 목적 :</li>
-                    <li>주소 :</li>
-                    <li>ID :</li>
-                  </ul> -->
-                <!-- </div> -->
               </div>
             </div>
           </div>
-
-          <!-- End Page Content -->
         </div>
-        <!-- End Container fluid  -->
-        <!-- footer -->
-        <footer class="footer">
-          © 2018 All rights reserved. Template designed by
-          <a href="https://colorlib.com">Colorlib</a>
-        </footer>
-        <!-- End footer -->
       </div>
-      <!-- End Page wrapper  -->
     </div>
     <!-- End Wrapper -->
     <!-- All Jquery -->
@@ -288,28 +118,7 @@
     <!--stickey kit -->
     <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
     <!--Custom JavaScript -->
-
-    <!-- Amchart -->
-    <script src="js/lib/morris-chart/raphael-min.js"></script>
-    <script src="js/lib/morris-chart/morris.js"></script>
-    <script src="js/lib/morris-chart/dashboard1-init.js"></script>
-
-    <script src="js/lib/calendar-2/moment.latest.min.js"></script>
-    <!-- scripit init-->
-    <script src="js/lib/calendar-2/semantic.ui.min.js"></script>
-    <!-- scripit init-->
-    <script src="js/lib/calendar-2/prism.min.js"></script>
-    <!-- scripit init-->
-    <script src="js/lib/calendar-2/pignose.calendar.min.js"></script>
-    <!-- scripit init-->
-    <script src="js/lib/calendar-2/pignose.init.js"></script>
-
-    <script src="js/lib/owl-carousel/owl.carousel.min.js"></script>
-    <script src="js/lib/owl-carousel/owl.carousel-init.js"></script>
-    <script src="js/scripts.js"></script>
-    <!-- scripit init-->
-    <script src="js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="js/lib/chart-js/chartjs-init.js"></script>
     <script src="js/custom.min.js"></script>
+    <script src="js/login-test.js" defer></script>
   </body>
 </html>
