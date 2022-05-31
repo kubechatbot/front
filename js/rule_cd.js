@@ -105,24 +105,24 @@ function showInfo(r){
 }
 
 
-function modInfo(r){
-    var rIdx = r.parentNode.parentNode.rowIndex-3;
-    var trow=document.getElementById("myTable").getElementsByTagName("tr")[rIdx].childNodes[1].innerText;
+// function modInfo(r){
+//     var rIdx = r.parentNode.parentNode.rowIndex-3;
+//     var trow=document.getElementById("myTable").getElementsByTagName("tr")[rIdx].childNodes[1].innerText;
 
-    var testest=document.getElementById("test").value;
-    var testest2=document.getElementById("test2").value;
+//     var testest=document.getElementById("test").value;
+//     var testest2=document.getElementById("test2").value;
 
-    var onlymod=making_rule[trow];
+//     var onlymod=making_rule[trow];
 
-    if(Object.keys(onlymod).includes(testest)==true){
-        var modresult=confirm('이미 존재하는 값입니다. 변경하시겠습니까? (저장된 내용)= 검색어:'+testest+'   출력:'+onlymod[testest]+')');
-        if(modresult){
-            delete onlymod[testest];
-           onlymod[testest]=testest2;
-        }
-        else{
-            return false;
-        }
-    }
-    onlymod[testest]=testest2;
-}
+//     if(Object.keys(onlymod).includes(testest)==true){
+//         var modresult=confirm('이미 존재하는 값입니다. 변경하시겠습니까? (저장된 내용)= 검색어:'+testest+'   출력:'+onlymod[testest]+')');
+//         if(modresult){
+//             delete onlymod[testest];
+//            onlymod[testest]=testest2;
+//         }
+//         else{
+//             return false;
+//         }
+//     }
+//     onlymod[testest]=testest2;
+// }
