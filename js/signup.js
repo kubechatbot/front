@@ -12,7 +12,7 @@ const handleSignup = e => {
   // confirm_password = document.querySelector("#val-confirm-password");
 
   const data = Qs.stringify({
-    username: username.value,
+    name: username.value,
     email: email.value,
     password: password.value,
   });
@@ -32,7 +32,8 @@ const handleSignup = e => {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        // window.location.href = "/";
+        alert("회원가입 성공!");
+        window.location.href = "../page-login.html";
       })
       .catch(function (error) {
         console.log(error);

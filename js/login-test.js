@@ -29,7 +29,7 @@ const handleLogin = e => {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        // window.location.href = "/";
+        window.location.href = "/";
       })
       .catch(function (error) {
         console.log(error);

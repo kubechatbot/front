@@ -1,5 +1,5 @@
 .card {
-  height: 550px;
+  /* height: 550px; */
   display: flex;
 }
 
@@ -20,4 +20,8 @@
 
 .media-body li {
   padding: 10px;
+}
+
+.card3 {
+  height: 530px;
 }

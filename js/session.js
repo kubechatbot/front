@@ -1,46 +1,48 @@
-const data = [
-  {
-    chatbotType: "ai",
-    ruleSet: "test rule",
-    ruleName: "한양 챗봇",
-    domainSet: "3",
-    domainName: "test domain",
-    resGroup: "google",
-    resAllocat: "4",
-    resAllocRam: "500MB",
-  },
-  {
-    chatbotType: "rule",
-    ruleSet: "test2 rule",
-    ruleName: "kt ds 챗봇",
-    domainSet: "5",
-    domainName: "test2 domain",
-    resGroup: "aws",
-    resAllocat: "1",
-    resAllocRam: "1GB",
-  },
-  {
-    chatbotType: "search",
-    ruleSet: "test2 rule",
-    ruleName: "솦트 챗봇",
-    domainSet: "2",
-    domainName: "test3 domain",
-    resGroup: "etc",
-    resAllocat: "2",
-    resAllocRam: "500MB",
-  },
-];
+// const data = [
+//   {
+//     chatbotType: "ai",
+//     ruleSet: "test rule",
+//     ruleName: "한양 챗봇",
+//     domainSet: "3",
+//     domainName: "test domain",
+//     resGroup: "google",
+//     resAllocat: "4",
+//     resAllocRam: "500MB",
+//   },
+//   {
+//     chatbotType: "rule",
+//     ruleSet: "test2 rule",
+//     ruleName: "kt ds 챗봇",
+//     domainSet: "5",
+//     domainName: "test2 domain",
+//     resGroup: "aws",
+//     resAllocat: "1",
+//     resAllocRam: "1GB",
+//   },
+//   {
+//     chatbotType: "search",
+//     ruleSet: "test2 rule",
+//     ruleName: "솦트 챗봇",
+//     domainSet: "2",
+//     domainName: "test3 domain",
+//     resGroup: "etc",
+//     resAllocat: "2",
+//     resAllocRam: "500MB",
+//   },
+// ];
 
-data[3] = {
-  chatbotType: "ai",
-  ruleSet: "챗봇 룰 설정",
-  ruleName: "우정 챗봇",
-  domainSet: "5",
-  domainName: "test4 domain",
-  resGroup: "google",
-  resAllocat: "3",
-  resAllocRam: "1GB",
-};
+// data[3] = {
+//   chatbotType: "ai",
+//   ruleSet: "챗봇 룰 설정",
+//   ruleName: "우정 챗봇",
+//   domainSet: "5",
+//   domainName: "test4 domain",
+//   resGroup: "google",
+//   resAllocat: "3",
+//   resAllocRam: "1GB",
+// };
+
+const data = [];
 
 // 세션의 총 갯수를 나타냄. 개별적인 Id랑은 다른개념!
 var totalNum = 0;
