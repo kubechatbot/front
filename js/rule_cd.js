@@ -126,3 +126,43 @@ function showInfo(r){
 //     }
 //     onlymod[testest]=testest2;
 // }
+
+
+const createBtn = document.querySelector("#myBtn");
+
+// take code
+const handleCreate = e => {
+  e.preventDefault();
+
+  const email = document.querySelector("#email"),
+    password = document.querySelector("#password");
+
+    making_rule["user_id"] = new_rule;
+    
+  const data = Qs.stringify(making_rule);
+
+  // console.log(email.value);
+
+  setTimeout(() => {
+    const config = {
+      method: "post",
+      url: "http://34.64.167.59:8080/create",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        window.location.href = "/";
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert("룰 추가 중 에러 발생!");
+      });
+  });
+};
+
+createBtn.addEventListener("click", handleCreate);
