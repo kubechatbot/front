@@ -46,7 +46,6 @@
 //   alert("signup error!")
 // });
 // }
-
 const loginBtn = document.querySelector("button");
 
 // take code
