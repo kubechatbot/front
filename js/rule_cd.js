@@ -61,7 +61,10 @@ function myCreateFunction() {
       input => input.value
     );
   });
-  for (var i = 1; i < rule_input_first.length; i++) {
+  for (var i = 0; i < rule_input_first.length; i++) {
+      if(i==0){
+          making_rule_two['user_id']=new_rule;
+      }
     making_rule_two[rule_input_first[i]] = String(rule_input_second[i]);
     if (rule_input_first[i] == "" || rule_input_second[i] == "") {
       //input value가 ''이면 데이터에 넣지않음
@@ -143,10 +146,8 @@ const handleCreate = e => {
 
   const email = document.querySelector("#email"),
     password = document.querySelector("#password");
-
-    making_rule["user_id"] = new_rule;
     
-  const data = Qs.stringify(making_rule);
+  const data = Qs.stringify(making_rule_two);
 
   // console.log(email.value);
 
