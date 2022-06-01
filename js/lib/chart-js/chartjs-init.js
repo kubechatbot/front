@@ -23,7 +23,7 @@
           ],
         },
       ],
-      labels: ["green", "green", "green", "green"],
+      labels: ["1", "2", "3", "4"],
     },
     options: {
       responsive: true,
