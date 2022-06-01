@@ -138,39 +138,39 @@ function showInfo(r) {
 //     onlymod[testest]=testest2;
 // }
 
-const createBtn = document.querySelector("#myBtn");
+// const createBtn = document.querySelector("#myBtn");
 
-// take code
-const handleCreate = e => {
-  e.preventDefault();
+// // take code
+// const handleCreate = e => {
+//   e.preventDefault();
 
-  const email = document.querySelector("#email"),
-    password = document.querySelector("#password");
+//   const email = document.querySelector("#email"),
+//     password = document.querySelector("#password");
     
-  const data = Qs.stringify(making_rule_two);
+//   const data = Qs.stringify(making_rule_two);
 
-  // console.log(email.value);
+//   // console.log(email.value);
 
-  setTimeout(() => {
-    const config = {
-      method: "post",
-      url: "http://34.64.167.59:8080/create",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
+//   setTimeout(() => {
+//     const config = {
+//       method: "post",
+//       url: "http://34.64.167.59:8080/create",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       data: data,
+//     };
 
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        window.location.href = "/";
-      })
-      .catch(function (error) {
-        console.log(error);
-        alert("룰 추가 중 에러 발생!");
-      });
-  });
-};
+//     axios(config)
+//       .then(function (response) {
+//         console.log(JSON.stringify(response.data));
+//         window.location.href = "/";
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//         alert("룰 추가 중 에러 발생!");
+//       });
+//   });
+// };
 
-createBtn.addEventListener("click", handleCreate);
+// createBtn.addEventListener("click", handleCreate);
